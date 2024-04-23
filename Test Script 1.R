@@ -27,6 +27,12 @@ ggsave("Test Plot 1.png")
 # mean0 = mean(prostate$lpsa[prostate$pgg45==0])
 # points(x=0, y=mean0, pch=20, col="red", cex=2)
 
+ggplot(data = prostate, aes(x = pgg45, y = lpsa)) +
+  geom_point() +
+  geom_smooth(method='lm', formula= y~x)
+
+ggsave("Test Plot 2.png")
+
 
 
 # library(rgl)  
