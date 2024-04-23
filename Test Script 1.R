@@ -14,17 +14,18 @@ mod.pgg = lm(lpsa ~ pgg45, data=prostate)
 
 # x11(h=7, w=12)
 # par(mfrow=c(1,2))
-plot(y=prostate$lpsa, x=prostate$lcavol, 
-     main="lpsa vs. lcavol with fitted line")
-abline(mod.vol, col="blue", lwd=2, lty="dotted")
+
+ggplot(data = prostate, aes(x = lcavol, y = lpsa)) +
+  geom_point() +
+  geom_smooth(method='lm', formula= y~x)
 
 ggsave("Test Plot 1.png")
 
-plot2 <- plot(y=prostate$lpsa, x=prostate$pgg45, 
-     main="lpsa vs. pgg45 with fitted line")
-abline(mod.pgg, col="blue", lwd=2, lty="dotted")
-mean0 = mean(prostate$lpsa[prostate$pgg45==0])
-points(x=0, y=mean0, pch=18, col="red", cex=2)
+# plot2 <- plot(y=prostate$lpsa, x=prostate$pgg45, 
+#      main="lpsa vs. pgg45 with fitted line")
+# abline(mod.pgg, col="blue", lwd=2, lty="dotted")
+# mean0 = mean(prostate$lpsa[prostate$pgg45==0])
+# points(x=0, y=mean0, pch=20, col="red", cex=2)
 
 
 
