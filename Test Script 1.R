@@ -17,7 +17,7 @@ mod.pgg = lm(lpsa ~ pgg45, data=prostate)
 
 ggplot(data = prostate, aes(x = lcavol, y = lpsa)) +
   geom_point() +
-  geom_smooth(method='lm', formula= y~x)
+  geom_smooth(method = 'lm')
 
 ggsave("Test Plot 1.png")
 
