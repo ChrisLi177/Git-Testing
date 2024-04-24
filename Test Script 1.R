@@ -29,7 +29,7 @@ ggsave("Test Plot 1.png")
 
 ggplot(data = prostate, aes(x = pgg45, y = lpsa)) +
   geom_point() +
-  geom_smooth(method='lm', formula= y~x)
+  geom_smooth(method = 'lm', formula= y~x)
 
 ggsave("Test Plot 2.png")
 
