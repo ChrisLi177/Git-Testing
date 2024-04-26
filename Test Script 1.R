@@ -10,14 +10,15 @@ round(head(prostate), digits=3)
 
 
 mod.vol = lm(lpsa ~ lcavol, data=prostate)
-mod.pgg = lm(lpsa ~ pgg45, data=prostate)
+# mod.pgg = lm(lpsa ~ pgg45, data=prostate)
 
 # x11(h=7, w=12)
 # par(mfrow=c(1,2))
 
 ggplot(data = prostate, aes(x = lcavol, y = lpsa)) +
   geom_point() +
-  geom_smooth(method = 'lm')
+  geom_smooth(method = 'lm') +
+  labs(title = "Scatterplot between lpsa and pgg45")
 
 ggsave("Test Plot 1.png")
 
