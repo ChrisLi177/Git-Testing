@@ -18,19 +18,14 @@ mod.vol = lm(lpsa ~ lcavol, data=prostate)
 ggplot(data = prostate, aes(x = lcavol, y = lpsa)) +
   geom_point() +
   geom_smooth(method = 'lm') +
-  labs(title = "Scatterplot between lpsa and pgg45")
+  labs(title = "Scatterplot between lpsa and lcavol")
 
 ggsave("Test Plot 1.png")
 
-# plot2 <- plot(y=prostate$lpsa, x=prostate$pgg45, 
-#      main="lpsa vs. pgg45 with fitted line")
-# abline(mod.pgg, col="blue", lwd=2, lty="dotted")
-# mean0 = mean(prostate$lpsa[prostate$pgg45==0])
-# points(x=0, y=mean0, pch=20, col="red", cex=2)
-
 ggplot(data = prostate, aes(x = pgg45, y = lpsa)) +
   geom_point() +
-  geom_smooth(method = 'lm', formula= y~x)
+  geom_smooth(method = 'lm') +
+  labs(title = "Scatterplot between lpsa and pgg45")
 
 ggsave("Test Plot 2.png")
 
