@@ -1,21 +1,22 @@
 require(tidyverse)
 
 prostate <-  read.table("Prostate (1).csv", 
-                        header=TRUE, sep=",", na.strings=" ")
-round(head(prostate), digits=3)
+                        header = TRUE, sep = ",", na.strings = " ")
+
+round(head(prostate), digits = 3)
 
 # x11()
 # pairs(prostate)
 
 
 
-mod.vol = lm(lpsa ~ lcavol, data=prostate)
+mod.vol = lm(lpsa ~ lcavol + age, data = prostate)
 # mod.pgg = lm(lpsa ~ pgg45, data=prostate)
 
 # x11(h=7, w=12)
 # par(mfrow=c(1,2))
 
-ggplot(data = prostate, aes(x = lcavol, y = lpsa)) +
+ggplot(data = prostate, aes(x = age, y = lpsa)) +
   geom_point() +
   geom_smooth(method = 'lm') +
   labs(title = "Scatterplot between lpsa and lcavol")
